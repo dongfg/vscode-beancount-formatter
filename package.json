@@ -7,17 +7,33 @@
 		"vscode": "^1.30.0"
 	},
 	"categories": [
-		"Other"
+		"Formatters",
+		"Programming Languages"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onLanguage:beancount"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
+		"configuration": {
+			"title": "Beancount Fomatter Configuration",
+			"properties": {
+				"beancountFormatter.binPath": {
+					"type": "string",
+					"default": "bean-format",
+					"description": "Specify the path of bean-format, you need to install beancount first."
+				}
+			}
+		},
+		"languages": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"id": "beancount",
+				"aliases": [
+					"beancount"
+				],
+				"extensions": [
+					".bean"
+				]
 			}
 		]
 	},
