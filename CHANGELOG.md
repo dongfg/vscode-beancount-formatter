@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
+## [1.1.0] - 2019-01-30
+- bugfix, replace `cr` and `crlf` with `lf`
+## [1.0.0] - 2019-01-30
 - Initial release

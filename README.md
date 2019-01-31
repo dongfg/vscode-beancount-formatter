@@ -24,13 +24,6 @@ Default keyboard shortcuts for Format Document command:
 * Linux: **Ctrl+Shift+I**
 * Windows: **Shift+Alt+F**
 
-## Release Notes
-### 1.1.0
-* bugfix, replace `cr` and `crlf` with `lf`
-### 1.0.0
-* First Release
-
-
 ## License
 The MIT License (MIT)
 
