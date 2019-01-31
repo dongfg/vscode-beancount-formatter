@@ -2,7 +2,7 @@
 	"name": "vscode-beancount-formatter",
 	"displayName": "Beancount Formatter",
 	"description": "Beancount file formatter",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.30.0"
 	},
@@ -32,7 +32,8 @@
 					"beancount"
 				],
 				"extensions": [
-					".bean"
+					".bean",
+					".beancount"
 				]
 			}
 		]
