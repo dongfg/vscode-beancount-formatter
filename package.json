@@ -6,6 +6,17 @@
 	"engines": {
 		"vscode": "^1.30.0"
 	},
+	"publisher": "dongfg",
+	"license": "mit",
+	"author": "dongfg",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dongfg/vscode-beancount-formatter.git"
+	},
+	"bugs": {
+        "url": "https://github.com/dongfg/vscode-beancount-formatter/issues"
+    },
+	"homepage": "https://github.com/dongfg/vscode-beancount-formatter/blob/master/README.md",
 	"categories": [
 		"Formatters",
 		"Programming Languages"
