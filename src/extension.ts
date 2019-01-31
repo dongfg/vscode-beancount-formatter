@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 		provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
 			let formatterPath = vscode.workspace.getConfiguration("beancountFormatter")["binPath"];
 			let result = child.spawnSync(formatterPath, [], {
-				input: document.getText(),
+				input: document.getText().replace(/\r\n/g,'\n').replace(/\r/g,'\n'),
 				cwd: process.cwd(),
 				env: process.env,
 				stdio: 'pipe',

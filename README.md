@@ -25,6 +25,8 @@ Default keyboard shortcuts for Format Document command:
 * Windows: **Shift+Alt+F**
 
 ## Release Notes
+### 1.1.0
+* bugfix, replace `cr` and `crlf` with `lf`
 ### 1.0.0
 * First Release
 
