@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
+## [1.2.0] - 2019-08-09
+- Added more customization options
+
 ## [1.1.1] - 2019-01-30
 - add changelog
 
