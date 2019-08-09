@@ -13,8 +13,24 @@ export function activate(context: vscode.ExtensionContext) {
 
 	let disposable = vscode.languages.registerDocumentFormattingEditProvider({ scheme: 'file', language: 'beancount' }, {
 		provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
-			let formatterPath = vscode.workspace.getConfiguration("beancountFormatter")["binPath"];
-			let result = child.spawnSync(formatterPath, [], {
+			let config = vscode.workspace.getConfiguration("beancountFormatter");
+			let formatterPath = config["binPath"];
+			// Figure out which arguments to pass (we need to leave them blank if
+			// they're set to null to let bean-format automatically detect values).
+			let args = [];
+			if (config["prefixWidth"] != null) {
+				args.push("-w");
+				args.push(config["prefixWidth"]);
+			}
+			if (config["numWidth"] != null) {
+				args.push("-W");
+				args.push(config["numWidth"]);
+			}
+			if (config["currencyColumn"] != null) {
+				args.push("-c");
+				args.push(config["currencyColumn"]);
+			}
+			let result = child.spawnSync(formatterPath, args, {
 				input: document.getText().replace(/\r\n/g,'\n').replace(/\r/g,'\n'),
 				cwd: process.cwd(),
 				env: process.env,
