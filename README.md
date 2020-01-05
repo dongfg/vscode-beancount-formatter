@@ -10,7 +10,7 @@ Requires `bean-format` command to be installed, install python `beancount` packa
 
 * `beancountFormatter.binPath`: path of `bean-format`
 
-> For pyenv, the recommend value is `~/.pyenv/versions/<version>/bin/bean-format`
+> Recommend: Install python extension and automatically activate your python environments(virtualenv, venv, pipenv, conda and pyenv)
 
 ## Usage
 
