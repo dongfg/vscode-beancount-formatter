@@ -11,35 +11,47 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('[vscode-beancount-formatter] activated!');
 
-	let disposable = vscode.languages.registerDocumentFormattingEditProvider({ scheme: 'file', language: 'beancount' }, {
+	const disposable = vscode.languages.registerDocumentFormattingEditProvider({ scheme: 'file', language: 'beancount' }, {
 		provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
-			let config = vscode.workspace.getConfiguration("beancountFormatter");
-			let formatterPath = config["binPath"];
+			const config = vscode.workspace.getConfiguration("beancountFormatter");
+			const formatterPath = config["binPath"];
 			// Figure out which arguments to pass (we need to leave them blank if
 			// they're set to null to let bean-format automatically detect values).
-			let args = [];
-			if (config["prefixWidth"] != null) {
+			const args = [];
+			if (config["prefixWidth"] !== null) {
 				args.push("-w");
 				args.push(config["prefixWidth"]);
 			}
-			if (config["numWidth"] != null) {
+			if (config["numWidth"] !== null) {
 				args.push("-W");
 				args.push(config["numWidth"]);
 			}
-			if (config["currencyColumn"] != null) {
+			if (config["currencyColumn"] !== null) {
 				args.push("-c");
 				args.push(config["currencyColumn"]);
 			}
-			let result = child.spawnSync(formatterPath, args, {
-				input: document.getText().replace(/\r\n/g,'\n').replace(/\r/g,'\n'),
-				cwd: process.cwd(),
+			console.log('[vscode-beancount-formatter] workspace:' + JSON.stringify(vscode.workspace));
+			console.log('[vscode-beancount-formatter] PATH:' + process.env.PATH);
+			let cwd = process.cwd();
+			if (vscode.workspace.workspaceFolders !== undefined) {
+				cwd = vscode.workspace.workspaceFolders[0].uri.path;
+			}
+			const result = child.spawnSync(formatterPath, args, {
+				input: document.getText().replace(/\r\n/g, '\n').replace(/\r/g, '\n'),
+				cwd: cwd,
 				env: process.env,
 				stdio: 'pipe',
-				encoding: 'utf-8'
+				encoding: 'utf-8',
 			});
+
+			if(!result.output) {
+				vscode.window.showErrorMessage("Error call 'bean-format' command. Please check command in extension config and test in your terminal.");
+				return [];
+			}
+			
 			if (result.output[1]) {
-				let rangeStart: vscode.Position = document.lineAt(0).range.start;
-				let rangeEnd: vscode.Position = document.lineAt(document.lineCount - 1).range.end;
+				const rangeStart: vscode.Position = document.lineAt(0).range.start;
+				const rangeEnd: vscode.Position = document.lineAt(document.lineCount - 1).range.end;
 				return [vscode.TextEdit.replace(new vscode.Range(rangeStart, rangeEnd), result.output[1])];
 			} else if (result.output[2]) {
 				vscode.window.showInformationMessage(result.output[2]);
@@ -52,4 +64,6 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() { }
+export function deactivate() { 
+	console.log('[vscode-beancount-formatter] deactivated!');
+}
