@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
+## [1.2.1] - 2020-01-05
+- Fix command not found when using remote-wsl
+
 ## [1.2.0] - 2019-08-09
 - Added more customization options
 
