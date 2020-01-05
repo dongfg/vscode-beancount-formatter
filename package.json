@@ -2,7 +2,7 @@
 	"name": "vscode-beancount-formatter",
 	"displayName": "Beancount Formatter",
 	"description": "Beancount file formatter",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"engines": {
 		"vscode": "^1.30.0"
 	},
@@ -35,17 +35,26 @@
 					"description": "Specify the path of bean-format, you need to install beancount first."
 				},
 				"beancountFormatter.prefixWidth": {
-					"type": ["null", "number"],
+					"type": [
+						"null",
+						"number"
+					],
 					"default": null,
 					"description": "Use this prefix width instead of determining an optimal value automatically."
 				},
 				"beancountFormatter.numWidth": {
-					"type": ["null", "number"],
+					"type": [
+						"null",
+						"number"
+					],
 					"default": null,
 					"description": "Use this width to render numbers instead of determining an optimal value."
 				},
 				"beancountFormatter.currencyColumn": {
-					"type": ["null", "number"],
+					"type": [
+						"null",
+						"number"
+					],
 					"default": null,
 					"description": "Align currencies in this column."
 				}
