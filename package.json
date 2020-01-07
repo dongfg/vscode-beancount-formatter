@@ -1,90 +1,93 @@
 {
-	"name": "vscode-beancount-formatter",
-	"displayName": "Beancount Formatter",
-	"description": "Beancount file formatter",
-	"version": "1.2.3",
-	"engines": {
-		"vscode": "^1.30.0"
-	},
-	"publisher": "dongfg",
-	"license": "mit",
-	"author": "dongfg",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/dongfg/vscode-beancount-formatter.git"
-	},
-	"bugs": {
-		"url": "https://github.com/dongfg/vscode-beancount-formatter/issues"
-	},
-	"homepage": "https://github.com/dongfg/vscode-beancount-formatter/blob/master/README.md",
-	"categories": [
-		"Formatters",
-		"Programming Languages"
-	],
-	"activationEvents": [
-		"onLanguage:beancount"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"configuration": {
-			"title": "Beancount Fomatter Configuration",
-			"properties": {
-				"beancountFormatter.binPath": {
-					"type": "string",
-					"default": "bean-format",
-					"description": "Specify the path of bean-format, you need to install beancount first."
-				},
-				"beancountFormatter.prefixWidth": {
-					"type": [
-						"null",
-						"number"
-					],
-					"default": null,
-					"description": "Use this prefix width instead of determining an optimal value automatically."
-				},
-				"beancountFormatter.numWidth": {
-					"type": [
-						"null",
-						"number"
-					],
-					"default": null,
-					"description": "Use this width to render numbers instead of determining an optimal value."
-				},
-				"beancountFormatter.currencyColumn": {
-					"type": [
-						"null",
-						"number"
-					],
-					"default": null,
-					"description": "Align currencies in this column."
-				}
-			}
-		},
-		"languages": [
-			{
-				"id": "beancount",
-				"aliases": [
-					"beancount"
-				],
-				"extensions": [
-					".bean",
-					".beancount"
-				]
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "npm run compile && node ./node_modules/vscode/bin/test"
-	},
-	"devDependencies": {
-		"typescript": "^3.1.4",
-		"vscode": "^1.1.25",
-		"tslint": "^5.8.0",
-		"@types/node": "^8.10.25",
-		"@types/mocha": "^2.2.42"
-	}
+  "name": "vscode-beancount-formatter",
+  "displayName": "Beancount Formatter",
+  "description": "Beancount file formatter",
+  "version": "1.2.3",
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "publisher": "dongfg",
+  "license": "mit",
+  "author": "dongfg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dongfg/vscode-beancount-formatter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dongfg/vscode-beancount-formatter/issues"
+  },
+  "homepage": "https://github.com/dongfg/vscode-beancount-formatter/blob/master/README.md",
+  "categories": [
+    "Formatters",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:beancount"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Beancount Fomatter Configuration",
+      "properties": {
+        "beancountFormatter.binPath": {
+          "type": "string",
+          "default": "bean-format",
+          "description": "Specify the path of bean-format, you need to install beancount first."
+        },
+        "beancountFormatter.prefixWidth": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "default": null,
+          "description": "Use this prefix width instead of determining an optimal value automatically."
+        },
+        "beancountFormatter.numWidth": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "default": null,
+          "description": "Use this width to render numbers instead of determining an optimal value."
+        },
+        "beancountFormatter.currencyColumn": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "default": null,
+          "description": "Align currencies in this column."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "beancount",
+        "aliases": [
+          "beancount"
+        ],
+        "extensions": [
+          ".bean",
+          ".beancount"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^13.1.4",
+    "@types/vscode": "^1.41.0",
+    "glob": "^7.1.5",
+    "mocha": "^7.0.0",
+    "typescript": "^3.7.4",
+    "vscode-test": "^1.2.2"
+  }
 }
