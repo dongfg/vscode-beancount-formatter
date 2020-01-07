@@ -33,14 +33,9 @@ export function activate(context: vscode.ExtensionContext) {
           args.push("-c");
           args.push(config["currencyColumn"]);
         }
-        console.log(
-          "[vscode-beancount-formatter] workspace:" +
-            JSON.stringify(vscode.workspace)
-        );
-        console.log("[vscode-beancount-formatter] PATH:" + process.env.PATH);
         let cwd = process.cwd();
         if (vscode.workspace.workspaceFolders !== undefined) {
-          cwd = vscode.workspace.workspaceFolders[0].uri.path;
+          cwd = vscode.workspace.workspaceFolders[0].uri.fsPath;
         }
         const result = child.spawnSync(formatterPath, args, {
           input: document
@@ -54,6 +49,13 @@ export function activate(context: vscode.ExtensionContext) {
         });
 
         if (!result.output) {
+          console.log(
+            "[vscode-beancount-formatter] spawnSync:" +
+              JSON.stringify({
+                cwd: cwd,
+                path: process.env.PATH
+              })
+          );
           console.error(
             "[vscode-beancount-formatter] result:" + JSON.stringify(result)
           );
