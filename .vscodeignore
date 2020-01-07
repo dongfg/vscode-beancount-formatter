@@ -2,9 +2,14 @@
 .vscode-test/**
 out/test/**
 src/**
+.eslintcache
+.eslintrc.js
 .gitignore
+.prettierrc.js
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/tslint.json
 **/*.map
 **/*.ts
+yarn.lock
+package-lock.json
