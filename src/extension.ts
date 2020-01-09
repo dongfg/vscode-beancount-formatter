@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import * as child from 'child_process';
+import { FormatOptions, format } from './format';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -15,60 +15,22 @@ export function activate(context: vscode.ExtensionContext): void {
     {
       provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
         const config = vscode.workspace.getConfiguration('beancountFormatter');
-        const formatterPath = config['binPath'];
-        // Figure out which arguments to pass (we need to leave them blank if
-        // they're set to null to let bean-format automatically detect values).
-        const args = [];
-        if (config['prefixWidth'] !== null) {
-          args.push('-w');
-          args.push(config['prefixWidth']);
-        }
-        if (config['numWidth'] !== null) {
-          args.push('-W');
-          args.push(config['numWidth']);
-        }
-        if (config['currencyColumn'] !== null) {
-          args.push('-c');
-          args.push(config['currencyColumn']);
-        }
-        let cwd = process.cwd();
-        if (vscode.workspace.workspaceFolders !== undefined) {
-          cwd = vscode.workspace.workspaceFolders[0].uri.fsPath;
-        }
-        const result = child.spawnSync(formatterPath, args, {
-          input: document
+        const opts: FormatOptions = {};
+        opts.prefixWidth = config.get<number>('prefixWidth');
+        opts.numWidth = config.get<number>('numWidth');
+        opts.currencyColumn = config.get<number>('currencyColumn');
+
+        const result = format(
+          document
             .getText()
             .replace(/\r\n/g, '\n')
             .replace(/\r/g, '\n'),
-          cwd: cwd,
-          env: process.env,
-          stdio: 'pipe',
-          encoding: 'utf-8',
-        });
+          opts,
+        );
 
-        if (!result.output) {
-          console.log(
-            '[vscode-beancount-formatter] spawnSync:' +
-              JSON.stringify({
-                cwd: cwd,
-                path: process.env.PATH,
-              }),
-          );
-          console.error('[vscode-beancount-formatter] result:' + JSON.stringify(result));
-          vscode.window.showErrorMessage(
-            `Error call '${formatterPath}'. Please check command in extension config and test in your terminal.`,
-          );
-          return [];
-        }
-
-        if (result.output[1]) {
-          const rangeStart: vscode.Position = document.lineAt(0).range.start;
-          const rangeEnd: vscode.Position = document.lineAt(document.lineCount - 1).range.end;
-          return [vscode.TextEdit.replace(new vscode.Range(rangeStart, rangeEnd), result.output[1])];
-        } else if (result.output[2]) {
-          vscode.window.showInformationMessage(result.output[2]);
-        }
-        return [];
+        const rangeStart: vscode.Position = document.lineAt(0).range.start;
+        const rangeEnd: vscode.Position = document.lineAt(document.lineCount - 1).range.end;
+        return [vscode.TextEdit.replace(new vscode.Range(rangeStart, rangeEnd), result)];
       },
     },
   );
