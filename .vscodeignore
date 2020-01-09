@@ -6,6 +6,7 @@ src/**
 .eslintrc.js
 .gitignore
 .prettierrc.js
+jest.config.js
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/tslint.json
