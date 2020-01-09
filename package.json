@@ -21,6 +21,7 @@
     "Formatters",
     "Programming Languages"
   ],
+  "icon": "icon.png",
   "activationEvents": [
     "onLanguage:beancount"
   ],
