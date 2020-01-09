@@ -5,10 +5,5 @@
   "search.exclude": {
     "out": true
   },
-  "typescript.tsc.autoDetect": "off",
-  "files.eol": "\n",
-  "editor.tabSize": 4,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.disableLanguages": []
+  "typescript.tsc.autoDetect": "off"
 }
