@@ -190,5 +190,5 @@ function alignBeancount(contents: string, prefixWidth?: number, numWidth?: numbe
 export function format(contents: string, opts?: FormatOptions): string {
   // Align the contents.
   const formated = alignBeancount(contents, opts?.prefixWidth, opts?.numWidth, opts?.currencyColumn);
-  return formated.trimRight();
+  return formated.replace(/\n$/, '');
 }
