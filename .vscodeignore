@@ -1,6 +1,7 @@
 .vscode/**
 .vscode-test/**
 out/test/**
+out/__tests__/**
 src/**
 .eslintcache
 .eslintrc.js
