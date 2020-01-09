@@ -4,13 +4,16 @@ beancount formatter extension for VS Code
 
 ## Requirements
 
-Requires `bean-format` command to be installed, install python `beancount` package first.
+~~Requires `bean-format` command to be installed, install python `beancount` package first.~~
+
+After `1.3.0`, do not depends on beancount anymore.
 
 ## Extension Settings
 
-* `beancountFormatter.binPath`: path of `bean-format`
-
-> Recommend: Install python extension and automatically activate your python environments(virtualenv, venv, pipenv, conda and pyenv)
+- ~~`beancountFormatter.binPath`: path of `bean-format`~~ (deprecated)
+- `beancountFormatter.prefixWidth`: Use this prefix width instead of determining an optimal value automatically.
+- `beancountFormatter.numWidth`: Use this width to render numbers instead of determining an optimal value.
+- `beancountFormatter.currencyColumn`: Align currencies in this column.
 
 ## Usage
 
@@ -20,14 +23,21 @@ Files can be formatted on-demand by right-clicking in the document and selecting
 
 Default keyboard shortcuts for Format Document command:
 
-* macOS: **Shift+Alt+F**
-* Linux: **Ctrl+Shift+I**
-* Windows: **Shift+Alt+F**
+- macOS: **Shift+Alt+F**
+- Linux: **Ctrl+Shift+I**
+- Windows: **Shift+Alt+F**
+
+## Development
+
+- [format.ts](src/format.ts) was rewrite from beancount's [format.py](https://github.com/beancount/beancount/blob/master/beancount/scripts/format.py)
+- `yarn test` run testCase copy from [format_test.py](https://github.com/beancount/beancount/blob/master/beancount/scripts/format_test.py)
+- The test helper file `helper.ts` depends on `bean-format` command, so you need to install `beancount` with pip
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2019 dongfg <mail@dongfg.com> (https://dongfg.com)
+Copyright (c) 2020 dongfg <mail@dongfg.com> (https://dongfg.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
