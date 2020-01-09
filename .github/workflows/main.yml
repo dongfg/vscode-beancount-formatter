@@ -17,7 +17,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: yarn global add vsce
-      - run: yarn
-      - run: yarn test
-      - run: vsce package
+      - name: build, test and package
+        run: |
+          yarn global add vsce
+          yarn install
+          yarn test
+          vsce package
