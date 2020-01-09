@@ -32,7 +32,7 @@
         "beancountFormatter.binPath": {
           "type": "string",
           "default": "bean-format",
-          "description": "Specify the path of bean-format, you need to install beancount first."
+          "description": "deprecated, no longer needed, but format options are still supported"
         },
         "beancountFormatter.prefixWidth": {
           "type": [

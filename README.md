@@ -6,7 +6,7 @@ beancount formatter extension for VS Code
 
 ~~Requires `bean-format` command to be installed, install python `beancount` package first.~~
 
-After `1.3.0`, do not depends on beancount anymore.
+After `1.3.0`, `beancount` is no longer needed, but format options are still supported.
 
 ## Extension Settings
 
