@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
+## [1.3.0] - 2020-01-09
+
+- Big change, the extension do not require `beancount` anymore.
+
 ## [1.2.3] - 2020-01-07
 
 - Fix get workspace path error
