@@ -19,7 +19,7 @@ jobs:
           node-version: '12.x'
       - name: build, test and package
         run: |
-          yarn global add vsce
+          npm install -g vsce
           yarn install
           yarn test
           vsce package
