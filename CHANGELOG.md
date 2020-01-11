@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
+## [1.3.1] - 2020-01-11
+
+- Fix #8, string repeat a negative number.
+
 ## [1.3.0] - 2020-01-09
 
 - Big change, the extension do not require `beancount` anymore.
