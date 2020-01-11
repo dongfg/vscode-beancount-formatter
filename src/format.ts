@@ -123,7 +123,10 @@ function alignBeancount(contents: string, prefixWidth?: number, numWidth?: numbe
       if (!number) {
         output += prefix;
       } else {
-        const numOfSpaces = currencyColumn - prefix.length - number.length - 4;
+        let numOfSpaces = currencyColumn - prefix.length - number.length - 4;
+        if (numOfSpaces < 0) {
+          numOfSpaces = 0;
+        }
         const spaces = ' '.repeat(numOfSpaces);
         output += prefix + spaces + '  ' + number + ' ' + rest;
       }
