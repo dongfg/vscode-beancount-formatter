@@ -141,9 +141,19 @@ test('fixed_column', () => {
   expect(format(input, opts)).toBe(formatWithPython(input, opts));
 });
 
-test('issue#8', () => {
+test('issue#8 1', () => {
   const input = `
   2020-01-04 balance Assets:Balance:WallackManagement  1346.32 USD
+`;
+  const opts: FormatOptions = { currencyColumn: 10 };
+  expect(format(input, opts)).toBe(formatWithPython(input, opts));
+});
+
+test('issue#8 2', () => {
+  const input = `
+  2020-01-03 * "American Airlines" "ESHOPPING 2019 HOLIDAY BONUS"
+  Income:PnC:Portal:AA
+  Assets:Points:AmericanAirlines  
 `;
   const opts: FormatOptions = { currencyColumn: 10 };
   expect(format(input, opts)).toBe(formatWithPython(input, opts));
