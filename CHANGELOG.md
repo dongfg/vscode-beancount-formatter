@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
+## [1.3.2] - 2020-01-12
+
+- #8, `CURRENCY_RE` should full match line.
+
 ## [1.3.1] - 2020-01-11
 
 - Fix #8, string repeat a negative number.
