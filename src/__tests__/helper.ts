@@ -41,7 +41,7 @@ export function dedent(templateStrings: TemplateStringsArray | string): string {
     }
   }
   if (matches.length) {
-    const size = Math.min(...matches.map(value => value.length - 1));
+    const size = Math.min(...matches.map((value) => value.length - 1));
     const pattern = new RegExp(`\n[\t ]{${size}}`, 'g');
 
     for (let i = 0; i < strings.length; i++) {
