@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
+## [1.4.1] - 2021-07-05
+
+- Add option doc for `fixedCJKWidth`
+
 ## [1.4.0] - 2021-07-05
 
 - #18, Add option `fixedCJKWidth` to treat CJK aka East Asian characters as two letters width.
