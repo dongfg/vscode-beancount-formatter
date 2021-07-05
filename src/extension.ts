@@ -19,14 +19,9 @@ export function activate(context: vscode.ExtensionContext): void {
         opts.prefixWidth = config.get<number>('prefixWidth');
         opts.numWidth = config.get<number>('numWidth');
         opts.currencyColumn = config.get<number>('currencyColumn');
+        opts.fixedCJKWidth = config.get<boolean>('fixedCJKWidth');
 
-        const result = format(
-          document
-            .getText()
-            .replace(/\r\n/g, '\n')
-            .replace(/\r/g, '\n'),
-          opts,
-        );
+        const result = format(document.getText().replace(/\r\n/g, '\n').replace(/\r/g, '\n'), opts);
 
         const rangeStart: vscode.Position = document.lineAt(0).range.start;
         const rangeEnd: vscode.Position = document.lineAt(document.lineCount - 1).range.end;
