@@ -2,18 +2,12 @@
 
 beancount formatter extension for VS Code
 
-## Requirements
-
-~~Requires `bean-format` command to be installed, install python `beancount` package first.~~
-
-After `1.3.0`, `beancount` is no longer needed, but format options are still supported.
-
 ## Extension Settings
 
-- ~~`beancountFormatter.binPath`: path of `bean-format`~~ (deprecated)
 - `beancountFormatter.prefixWidth`: Use this prefix width instead of determining an optimal value automatically.
 - `beancountFormatter.numWidth`: Use this width to render numbers instead of determining an optimal value.
 - `beancountFormatter.currencyColumn`: Align currencies in this column.
+- `beancountFormatter.fixedCJKWidth`: Set `true` to treat CJK aka East Asian characters as two letters width.
 
 ## Usage
 

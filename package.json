@@ -2,7 +2,7 @@
   "name": "vscode-beancount-formatter",
   "displayName": "Beancount Formatter",
   "description": "Beancount file formatter",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "engines": {
     "vscode": "^1.41.0"
   },
@@ -30,12 +30,6 @@
     "configuration": {
       "title": "Beancount Fomatter Configuration",
       "properties": {
-        "beancountFormatter.binPath": {
-          "type": "string",
-          "default": "bean-format",
-          "description": "bean-format bin path",
-          "deprecationMessage": "deprecated, no longer needed, but format options are still supported"
-        },
         "beancountFormatter.prefixWidth": {
           "type": [
             "null",
