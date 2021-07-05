@@ -33,7 +33,8 @@
         "beancountFormatter.binPath": {
           "type": "string",
           "default": "bean-format",
-          "description": "deprecated, no longer needed, but format options are still supported"
+          "description": "bean-format bin path",
+          "deprecationMessage": "deprecated, no longer needed, but format options are still supported"
         },
         "beancountFormatter.prefixWidth": {
           "type": [
@@ -58,6 +59,11 @@
           ],
           "default": null,
           "description": "Align currencies in this column."
+        },
+        "beancountFormatter.fixedCJKWidth": {
+          "type": "boolean",
+          "default": false,
+          "description": "Set true to treat CJK aka East Asian characters as two letters width."
         }
       }
     },

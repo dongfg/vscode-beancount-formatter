@@ -19,6 +19,7 @@ export function activate(context: vscode.ExtensionContext): void {
         opts.prefixWidth = config.get<number>('prefixWidth');
         opts.numWidth = config.get<number>('numWidth');
         opts.currencyColumn = config.get<number>('currencyColumn');
+        opts.fixedCJKWidth = config.get<boolean>('fixedCJKWidth');
 
         const result = format(document.getText().replace(/\r\n/g, '\n').replace(/\r/g, '\n'), opts);
 

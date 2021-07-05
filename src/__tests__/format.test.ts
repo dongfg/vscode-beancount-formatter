@@ -137,3 +137,19 @@ test('issue#8 2', () => {
   const opts: FormatOptions = { currencyColumn: 10 };
   expect(format(input, opts)).toBe(formatWithPython(input, opts));
 });
+
+test('issue#18', () => {
+  const input = dedent(`
+  Expenses:食品烟酒:烟酒:酒类 500.00 CNY
+  Expenses:abcd:ab:ab 600.00 CNY
+  abcdababExpenses:abcd:ab:ab 600.00 CNY
+`);
+  const expected = dedent(`
+  Expenses:食品烟酒:烟酒:酒类  500.00 CNY
+  Expenses:abcd:ab:ab          600.00 CNY
+  abcdababExpenses:abcd:ab:ab  600.00 CNY
+  `);
+  const opts: FormatOptions = { fixedCJKWidth: true };
+  const actual = format(input, opts);
+  expect(actual).toBe(expected);
+});
