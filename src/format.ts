@@ -252,7 +252,7 @@ function padPrefix(prefix: string, maxPrefixWidth: number, fixedCJKWidth?: boole
   if (prefixWidth === prefix.length) {
     return prefix.trimRight().padEnd(maxPrefixWidth, ' ');
   }
-  return prefix.trimRight().padEnd(maxPrefixWidth - prefixWidth, ' ');
+  return prefix.trimRight().padEnd(maxPrefixWidth + prefix.length - prefixWidth, ' ');
 }
 
 /**
