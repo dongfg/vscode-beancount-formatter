@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
+## [1.4.2] - 2021-07-07
+
+- bugfix#19, thanks [@whusnoopy](https://github.com/whusnoopy)
+
 ## [1.4.1] - 2021-07-05
 
 - Add option doc for `fixedCJKWidth`
