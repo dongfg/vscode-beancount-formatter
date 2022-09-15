@@ -26,7 +26,7 @@ export function formatWithPython(contents: string, opts?: FormatOptions): string
 
   const output = result.output[1];
   // console.log(`output: '${output.trimRight()}'`);
-  return output;
+  return output || '';
 }
 
 export function dedent(templateStrings: TemplateStringsArray | string): string {
