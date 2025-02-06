@@ -15,6 +15,7 @@ export function formatWithPython(contents: string, opts?: FormatOptions): string
     args.push('-c');
     args.push(opts.currencyColumn.toString());
   }
+  args.push('-');
 
   const result = child.spawnSync('bean-format', args, {
     input: contents,
@@ -23,6 +24,11 @@ export function formatWithPython(contents: string, opts?: FormatOptions): string
     stdio: 'pipe',
     encoding: 'utf-8',
   });
+
+  const err = result.output[2];
+  if (err) {
+    console.error(err);
+  }
 
   const output = result.output[1];
   // console.log(`output: '${output.trimRight()}'`);
