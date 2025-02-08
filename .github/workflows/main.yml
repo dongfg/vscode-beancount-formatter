@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Setup python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - run: pip install beancount
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: '20.x'
       - name: lint, build, test and package
         run: |
           npm install -g vsce
