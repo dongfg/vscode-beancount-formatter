@@ -81,6 +81,41 @@ test('commas', () => {
   expect(format(input)).toBe(formatWithPython(input));
 });
 
+test('simple expression', () => {
+  const input = dedent(`
+  2025-02-06 * "Something"
+    Expenses:Restaurant (5*-2) USD
+    Expenses:Fee 2 USD
+    Assets:Cash
+
+  2025-02-06 balance Assets:Cash (3.1 + 4) USD
+
+`);
+
+  expect(format(input)).toBe(formatWithPython(input));
+});
+
+test('complex expression', () => {
+  const input = dedent(`
+  2025-02-06 * "Something"
+    Expenses:Restaurant -3 * ( 5 + 1 ) / 2 USD
+    Expenses:Fee  ((3-1)*(5,000.5+1)/2) USD
+    Assets:Cash
+
+  2025-02-06 balance Assets:Cash 0 USD
+`);
+  const expected = dedent(`
+  2025-02-06 * "Something"
+    Expenses:Restaurant              -3 * ( 5 + 1 ) / 2 USD
+    Expenses:Fee                  ((3-1)*(5,000.5+1)/2) USD
+    Assets:Cash
+
+  2025-02-06 balance Assets:Cash                      0 USD
+`);
+
+  expect(format(input)).toBe(expected);
+});
+
 test('currency_issue146', () => {
   const input = `
           1970-01-01 open Equity:Opening-balances
