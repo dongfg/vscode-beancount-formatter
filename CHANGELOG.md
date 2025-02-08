@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-beancount-formatter" extension will be documented in this file.
 
+## [1.5.0] - 2025-02-08
+
+- Support arithmetic expression as amount #21, thanks [@silverwzw](https://github.com/silverwzw)
+
 ## [1.4.2] - 2021-07-07
 
 - bugfix#19, thanks [@whusnoopy](https://github.com/whusnoopy)

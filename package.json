@@ -2,7 +2,7 @@
   "name": "vscode-beancount-formatter",
   "displayName": "Beancount Formatter",
   "description": "Beancount file formatter",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "engines": {
     "vscode": "^1.41.0"
   },
@@ -89,22 +89,22 @@
     "**/*.ts": "yarn lint-staged"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/preset-typescript": "^7.14.5",
-    "@types/jest": "^26.0.23",
+    "@babel/core": "7.14.x",
+    "@babel/preset-env": "7.14.x",
+    "@babel/preset-typescript": "7.14.x",
+    "@types/jest": "26.0.x",
     "@types/node": "*",
-    "@types/vscode": "^1.41.0",
-    "@typescript-eslint/eslint-plugin": "^4.28.1",
-    "@typescript-eslint/parser": "^4.28.1",
-    "babel-jest": "^27.0.6",
-    "eslint": "^7.30.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "husky": "^7.0.0",
-    "jest": "^27.0.6",
+    "@types/vscode": "1.41.x",
+    "@typescript-eslint/eslint-plugin": "4.28.x",
+    "@typescript-eslint/parser": "4.28.x",
+    "babel-jest": "27.0.x",
+    "eslint": "7.30.x",
+    "eslint-config-prettier": "8.3.x",
+    "eslint-plugin-prettier": "3.4.x",
+    "husky": "7.0.x",
+    "jest": "27.0.x",
     "lint-staged": ">=10",
-    "prettier": "^2.3.2",
-    "typescript": "^3.7.4"
+    "prettier": "2.3.x",
+    "typescript": "4.8.x"
   }
 }
